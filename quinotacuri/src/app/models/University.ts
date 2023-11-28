@@ -1,6 +1,6 @@
-  export class University {
- ycqtId: number = 0
-  ycqtName: String = ''
-  ycqtAddress: String = ''
-  ycqtEmail: String = ''
+export class University {
+  ycqtId: number = 0;
+  ycqtName: String = '';
+  ycqtAddress: String = '';
+  ycqtEmail: String = '';
 }

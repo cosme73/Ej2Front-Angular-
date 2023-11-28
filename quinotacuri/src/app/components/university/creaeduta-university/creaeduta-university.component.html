@@ -1,1 +1,59 @@
-<p>creaeduta-university works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <h2>Registro de postres</h2>
+      <form [formGroup]="form" (submit)="aceptar()" class="example-form">
+        <mat-form-field class="example-full-width" *ngIf="edicion">
+          <mat-label>ycqtId</mat-label>
+          <input matInput placeholder="Id" formControlName="ycqtId" />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+          <mat-label>nombre</mat-label>
+          <input matInput placeholder="nombre" formControlName="ycqtName" />
+          <mat-error
+            *ngIf="obtenerControlCampo('ycqtName')?.errors?.['required']"
+          >
+            El nombre es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+          <mat-label>direccion</mat-label>
+          <input matInput placeholder="direccion" formControlName="ycqtAddress" />
+          <mat-error
+            *ngIf="obtenerControlCampo('ycqtAddress')?.errors?.['required']"
+          >
+            El precio es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+          <mat-label>correo</mat-label>
+          <input matInput placeholder="correo" formControlName="ycqtEmail" />
+          <mat-error
+            *ngIf="obtenerControlCampo('ycqtEmail')?.errors?.['required']"
+          >
+            El correo es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        
+       
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/components/postres">
+          Cancelar
+        </button>
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  </body>
+</html>
+
+
