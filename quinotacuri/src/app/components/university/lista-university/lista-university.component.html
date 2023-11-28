@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <h2 style="text-align: center">Lista de Universidades</h2>
+      
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+The actual rendered columns are set as a property on the row definition" --
+>
+    < !-- Position Column -->
+        <ng-container  matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef>codigo</th>
+          <td mat-cell *matCellDef="let element">{{ element.ycqtId }}</td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef>nombre</th>
+          <td mat-cell *matCellDef="let element">{{ element.ycqtName }}</td>
+        </ng-container>
+       
+        <!-- Name Column -->
+        <ng-container matColumnDef="direccion">
+          <th mat-header-cell *matHeaderCellDef>direccion</th>
+          <td mat-cell *matCellDef="let element">{{ element.ycqtAddress }}</td>
+        </ng-container>
+        <ng-container matColumnDef="correo">
+            <th mat-header-cell *matHeaderCellDef>correo</th>
+            <td mat-cell *matCellDef="let element">{{ element.ycqtEmail }}</td>
+          </ng-container>
+          
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25]"
+        showFirstLastButtons
+      ></mat-paginator>
+    </div>
+  </body>
+</html>
